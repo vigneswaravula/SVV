@@ -1,16 +1,6 @@
 import React from 'react';
-import { 
-  Shirt, 
-  Scissors, 
-  PaintBucket, 
-  Users, 
-  Phone, 
-  ChevronRight,
-  Sparkles,
-  Ruler,
-  Palette,
-  UserPlus
-} from 'lucide-react';
+import { Link } from 'react-router-dom';  // Add this import for routing
+import { Shirt, Scissors, PaintBucket, Users, Phone, ChevronRight, Sparkles, Ruler, Palette, UserPlus } from 'lucide-react';
 
 interface SideMenuProps {
   isOpen: boolean;
@@ -40,7 +30,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
       items: [
         { icon: Users, label: 'Our Team', href: '/team' },
         { icon: Phone, label: 'Contact Us', href: '/contact' },
-        { icon: UserPlus, label: 'Join Us', href: '/join-us' }
+        { icon: UserPlus, label: 'Join Us', href: '/joinus' }  // "Join Us" will navigate to /joinus
       ]
     }
   ];
@@ -61,7 +51,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
       <div className="w-80 h-full bg-white overflow-y-auto">
         <div className="p-6">
           <h2 className="text-2xl font-serif mb-8">StitchVastra</h2>
-          
+
           <div className="space-y-8">
             {menuItems.map((section, index) => (
               <div key={index}>
@@ -70,9 +60,9 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                 </h3>
                 <div className="space-y-2">
                   {section.items.map((item, itemIndex) => (
-                    <a
+                    <Link
                       key={itemIndex}
-                      href={item.href}
+                      to={item.href}  // Use 'Link' to navigate to routes
                       className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors"
                     >
                       <div className="flex items-center gap-3">
@@ -80,7 +70,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                         <span>{item.label}</span>
                       </div>
                       <ChevronRight className="h-4 w-4 text-gray-400" />
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
