@@ -287,6 +287,21 @@ export default function AuthModal({ onClose, onSignIn }: AuthModalProps) {
                       Admin
                     </label>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      id="vastrakar"
+                      name="userType"
+                      value="vastrakar"
+                      checked={userType === 'vastrakar'}
+                      onChange={(e) => setUserType(e.target.value)}
+                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                    />
+                    <label htmlFor="vastrakar" className="text-sm text-gray-600 flex items-center gap-1">
+                      <UserCog className="h-4 w-4" />
+                      VastraKar
+                    </label>
+                  </div>
                 </div>
               </div>
             </>
